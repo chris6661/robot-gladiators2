@@ -5,6 +5,7 @@ var startGame = function() {
   // reset player stats
   playerInfo.reset();
 
+  
   // fight each enemy robot by looping over them and fighting them one at a time
   for (var i = 0; i < enemyInfo.length; i++) {
     // if player is still alive, keep fight next enemy
@@ -50,7 +51,7 @@ var endGame = function() {
   if (playAgainConfirm) {
     startGame();
   } else {
-    window.alert('Thank you for playing Battlebots! Come back soon!');
+    window.alert('Thank you for playing Robot Gladiators! Come back soon!');
   }
 };
 
@@ -175,9 +176,17 @@ var randomNumber = function(min, max) {
 
 /* GAME INFORMATION / VARIABLES */
 
+// function to set name
+var getPlayerName = function() {
+  var name = "";
+
+  while (name === "" || name === null) {
+    name = prompt("What is your robot's name?");
+  }
+};
 // player information
 var playerInfo = {
-  name: window.prompt("What is your robot's name?"),
+  name: getPlayerName(),
   health: 100,
   attack: 10,
   money: 10,
@@ -196,7 +205,8 @@ var playerInfo = {
     this.attack += 6;
     this.money -= 7;
   }
-};
+}
+
 
 var enemyInfo = [
   {
