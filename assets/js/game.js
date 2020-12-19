@@ -221,12 +221,10 @@ var fightOrSkip = function() {
     // confirm player wants to skip
     var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
-    // if yes (true), leave fight
     if (confirmSkip) {
       window.alert(playerInfo.name + " has decided to skip this fight. Goodbye!");
-      // subtract money from playerMoney for skipping, but don't let them go into the negative
       playerInfo.money = Math.max(0, playerInfo.money - 10);
-      // stop while() loop using break; and enter next fight
+   
 
       // return true if player wants to leave
       return true;
@@ -237,7 +235,7 @@ var fightOrSkip = function() {
 
 /* END GAME FUNCTIONS */
 
-/* GAME INFORMATION / VARIABLES */
+// Gmame information
 
 var playerInfo = {
   name: getPlayerName(),
@@ -249,6 +247,7 @@ var playerInfo = {
     this.money = 10;
     this.attack = 10;
   },
+
   refillHealth: function() {
     if (this.money >= 7) {
       window.alert("Refilling player's health by 20 for 7 dollars.");
@@ -258,6 +257,7 @@ var playerInfo = {
       window.alert("You don't have enough money!");
     }
   },
+
   upgradeAttack: function() {
     if (this.money >= 7) {
       window.alert("Upgrading player's attack by 6 for 7 dollars.");
@@ -283,8 +283,6 @@ var enemyInfo = [
     attack: randomNumber(10, 14)
   }
 ];
-
-/* END GAME INFORMATION / VARIABLES */
 
 /* RUN GAME */
 startGame();
